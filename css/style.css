@@ -1,7 +1,10 @@
 html, body { height: 100%; margin: 0; padding: 0; }
 #map { height: 80%; }
 #logo-rozklad {
-    /*top: 4px;*/
+    font-size: 36px;
+    font-family: 'Lobster', cursive;
+    font-style: italic;
+    left: 15px;
 }
 /*Menu list ---------------------------------------------------------------------------------*/
 .mobile_size_menu_list {
@@ -10,16 +13,71 @@ html, body { height: 100%; margin: 0; padding: 0; }
 .mobile_size_menu_list li:hover {
     background-color: #82b1ff;
 }
+.mobile_size_menu_list li a {
+    color: #000;
+}
 .mobile_size_menu_list li a:hover {
     color: #fff;
 }
 .mobile_size_menu_list li {
     width: 100%;
 }
-/*Parallax configuration -------------------------------------------------------------------------*/
+/*Parallax configuration ----------------------------------------------------------------------*/
 .parallax-container {
     height: 400px;
 }
 .parallax_text {
     text-align: justify;
+}
+/*---------------------------------------------------------------------------------------------*/
+/*LEFT PANEL-----------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+
+/*btn------------------------------------------------------------------------------------------*/
+.left_panel_choice_transport {
+}
+.left_panel_choice_transport li {
+}
+.left_panel_headers i img {
+    position: relative;
+    top: 5px;
+}
+.left_panel_choice_route{
+    margin: 20px 0;
+    /*width: 100%;*/
+}
+.left_panel_choice_route a {
+    padding: 0;
+    margin: 10px 0;
+    width: 48%;
+}
+/*choice transports -----------------------------------------------------------------------------*/
+/*.left_panel_transports {*/
+    /*position: inherit;*/
+    /*display: inherit;*/
+/*}*/
+.left_panel_transports {
+    /*height: auto;*/
+}
+.left_panel_transports_content {
+    display: inline-block;
+}
+.left_panel_transports_icons {
+    /*position: relative;*/
+    /*margin: 0 auto;*/
+    /*padding: 10px;*/
+    margin: 10px 0;
+}
+.left_panel_transports_icons a {
+    display: inherit;
+    text-align: center;
+    margin: 0 auto;
+    /*margin-left: auto;*/
+}
+
+/*---------------------------------------------------------------------------------------------*/
+/*RIGHT PANEL----------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+.right_panel_choice_window ul{
+    overflow-x: hidden;
 }

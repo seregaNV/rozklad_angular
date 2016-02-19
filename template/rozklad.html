@@ -1,27 +1,92 @@
 <div class="row" content-dir>
-    <div class="col s12 m4 l3">
-        <ul class="collapsible popout" data-collapsible="accordion">
-            <li>
-                <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-            </li>
-            <li>
-                <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-                <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-            </li>
-        </ul>
+    <div class="col s12 l4" ng-controller="GetTransportsCtrl">
+        <div class=" row left_panel_choice_route">
+            <a class="waves-effect btn blue accent-1 left">Зупинки</a>
+            <a class="waves-effect btn blue accent-1 right">Маршрути</a>
+        </div>
+        <div class="row">
+            <ul class="collapsible popout left_panel_choice_transport" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header blue accent-1 waves-effect left_panel_headers white-text">
+                        <i class="material-icons"><img src="/img/tram.png" alt=""/></i>Трамвай
+                    </div>
+                    <div class="collapsible-body left_panel_transports">
+
+                        <div ng-repeat="tram in trams"
+                             ng-show="choiceView == 'list'">
+                            <p><b>№{{ tram.number }}.</b> {{ tram.name }}</p>
+                        </div>
+                        <!--<div ng-repeat="tram in trams"-->
+                             <!--ng-click="getRoute(tram)"-->
+                             <!--ng-class="{rozklad_choice_content_active: (checkNumber == tram.number) && (checkType == 'tram')}">-->
+                            <!--<p><b>№{{ tram.number }}.</b> {{ tram.name }}</p>-->
+                        <!--</div>-->
+                        <div ng-show="choiceView == 'icon'" class="left_panel_transports_content">
+                            <div class="col s2 l4 left_panel_transports_icons"
+                                 ng-repeat="tram in trams">
+                                <a class="btn-floating btn-large waves-effect blue accent-1">
+                                    {{ tram.number }}
+                                </a>
+                            </div>
+                        </div>
+                        <!--<div  ng-show="choiceView == 'icon'"-->
+                              <!--class="col s2 l4"-->
+                              <!--ng-repeat="tram in trams"-->
+                              <!--ng-click="getRoute(tram)">-->
+                            <!--<div class="rozklad_choice_way_element"-->
+                                 <!--ng-class="{rozklad_choice_way_active: (checkNumber == tram.number) && (checkType == 'tram')}">-->
+                                <!--<div><p>{{ tram.number }}</p></div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header blue accent-1 waves-effect left_panel_headers white-text">
+                        <i class="material-icons"><img src="/img/trolleybus.png" alt=""/></i>Тролейбус
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div ng-repeat="trolleybus in trolleybuses"
+                             ng-show="choiceView == 'list'">
+                            <p><b>№{{ trolleybus.number }}.</b> {{ trolleybus.name }}</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header blue accent-1 waves-effect left_panel_headers white-text">
+                        <i class="material-icons"><img src="/img/bus.png" alt=""/></i>Автобус
+                    </div>
+                    <div class="collapsible-body">
+
+                        <div ng-repeat="bus in buses"
+                             ng-show="choiceView == 'list'">
+                            <p><b>№{{ bus.number }}.</b> {{ bus.name }}</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="col s12 m8 l9"></div>
+    <div class="col s12 l8">
+        <div class="row right_panel_choice_window">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"><a class="active" href="#test1">Test 1</a></li>
+                    <li ng-if="false" class="tab col s3"><a href="#test2">Test 2</a></li>
+                    <li class="tab col s3"><a href="#test3">Test 3</a></li>
+                </ul>
+            </div>
+            <div id="test1" class="col s12">Test 1</div>
+            <div ng-if="false" id="test2" class="col s12">Test 2</div>
+            <div id="test3" class="col s12">Test 3</div>
+        </div>
+    </div>
 </div>
 <div parallax-dir>
     <div class="parallax-container">
         <div class="parallax"><img src="/img/title2.jpg"></div>
     </div>
-    <div class="section white">
+    <div class="section white z-depth-3">
         <div class="row container">
             <p class="grey-text text-darken-3 lighten-3 parallax_text">
                 Завдяки інформації, яку можна знайти на сторінках цього сайту, Ви зможете краще спланувати свої
@@ -36,3 +101,30 @@
         <div class="parallax"><img src="/img/title3.jpg"></div>
     </div>
 </div>
+
+
+<!--<footer class="page-footer">-->
+    <!--<div class="container">-->
+        <!--<div class="row">-->
+            <!--<div class="col l6 s12">-->
+                <!--<h5 class="white-text">Footer Content</h5>-->
+                <!--<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>-->
+            <!--</div>-->
+            <!--<div class="col l4 offset-l2 s12">-->
+                <!--<h5 class="white-text">Links</h5>-->
+                <!--<ul>-->
+                    <!--<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>-->
+                    <!--<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>-->
+                    <!--<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>-->
+                    <!--<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="footer-copyright">-->
+        <!--<div class="container">-->
+            <!--© 2014 Copyright Text-->
+            <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</footer>-->

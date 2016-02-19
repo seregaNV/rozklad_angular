@@ -5,8 +5,7 @@
         $stateProvider
             .state('/', {
                 url: '/',
-                templateUrl: 'template/rozklad.html',
-                controller: 'RozkladCtrl'
+                templateUrl: 'template/rozklad.html'
             })
             .state('login', {
                 url: '/login',
