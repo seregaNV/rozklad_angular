@@ -1,0 +1,25 @@
+html, body { height: 100%; margin: 0; padding: 0; }
+#map { height: 80%; }
+#logo-rozklad {
+    /*top: 4px;*/
+}
+/*Menu list ---------------------------------------------------------------------------------*/
+.mobile_size_menu_list {
+    background-color: #e3f2fd;
+}
+.mobile_size_menu_list li:hover {
+    background-color: #82b1ff;
+}
+.mobile_size_menu_list li a:hover {
+    color: #fff;
+}
+.mobile_size_menu_list li {
+    width: 100%;
+}
+/*Parallax configuration -------------------------------------------------------------------------*/
+.parallax-container {
+    height: 400px;
+}
+.parallax_text {
+    text-align: justify;
+}

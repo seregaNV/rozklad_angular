@@ -1,0 +1,38 @@
+{
+  "name": "rozklad",
+  "description": "transport schedule",
+  "main": "index.html",
+  "authors": [
+    "seregaNV <serega.n.v333@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angularJS",
+    "transport",
+    "Vinnica"
+  ],
+  "homepage": "https://github.com/seregaNV/rozklad_angular",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-animate": "~1.4.8",
+    "angular-resource": "~1.4.8",
+    "jquery": "~2.1.4",
+    "jquery-ui": "~1.11.4",
+    "font-awesome": "~4.5.0",
+    "angular-ui-router": "~0.2.15",
+    "angular-mocks": "~1.4.8",
+    "Materialize": "materialize#~0.97.5"
+  }
+}

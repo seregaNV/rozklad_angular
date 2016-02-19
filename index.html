@@ -1,95 +1,47 @@
 <!doctype html>
-<html lang="en" ng-app="phonecatApp">
+<html lang="en" ng-app="rozkladApp">
 <head>
     <base href="/"/>
     <meta charset="utf-8">
-    <title>AngularJS</title>
-    <link rel="icon" href="/img/favicon.ico" type="image/ico">
+    <title>rozklad.in.ua</title>
+    <link rel="icon" href="/img/favicon.png" type="image/png">
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <script src="bower_components/Materialize/bin/materialize.js"></script>
+    <link rel="stylesheet" href="bower_components/Materialize/bin/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
-    <link rel="stylesheet" href="bower_components/Alegreya/alegreyaSans.css">
-    <!--<link rel="stylesheet" href="bower_components/foundation/css/foundation.css">-->
-    <!--<link rel="stylesheet" href="bower_components/normalize-css/normalize.css">-->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <!--<style type="text/css">-->
-        <!--html, body { height: 100%; margin: 0; padding: 0; }-->
-        <!--#map { height: 100%; }-->
-    <!--</style>-->
 </head>
 <body>
-<div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" id="logo-angular" ui-sref="/"><img src="img/angularjs-logo.png"></a>
-        </div>
-        <div class="collapse navbar-collapse navbar-right" id="responsive-menu">
-            <ul class="nav navbar-nav">
-                <li><a ui-sref="phone-catalog">Phone catalog</a></li>
-                <li><a ui-sref="phone-book">Phonebook</a></li>
-                <li><a ui-sref="trello">Trello</a></li>
-                <li><a ui-sref="rozklad">Rozklad</a></li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tasks <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a ui-sref="simple-angular">Simple angular</a></li>
-                    </ul>
-                </li>
+
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper blue accent-1">
+            <a class="brand-logo" id="logo-rozklad" ui-sref="/"><img src="img/rozklad-logo.jpg"></a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li class="waves-effect"><a ui-sref="login">Вхід</a></li>
+            </ul>
+            <ul class="mobile_size_menu_list side-nav" id="mobile-demo">
+                <li class="waves-effect waves-light"><a ui-sref="login">Вхід</a></li>
             </ul>
         </div>
-    </div>
+    </nav>
 </div>
-<div class="container total-container">
-    <div class="view-container">
-        <div ui-view></div>
-        <!--<div ng-view class="view-frame"></div>-->
-    </div>
-    <footer>
-        <div id = "main_footer" class="text-right text-muted">
-            <hr>
-            <p>Powered by <a href="https://angularjs.org" target="blank">angularJS</a></p>
-            <p>With any questions and suggestions, please email:</p>
-            <a href="mailto: serega.n.v333@gmail.com">serega.n.v333@gmail.com</a>
-        </div>
-    </footer>
+<div class="view-container">
+    <div ui-view></div>
 </div>
-
-
-<!--<div id="map"></div>-->
-
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSq2iIy-IfMWsyVaJmZW2_sy2QwNOdb7I&">
-</script>
-
-<script src="js/googleMapAPI.js"></script>
 <script src="bower_components/angular/angular.js"></script>
-<!--<script src="bower_components/angular-route/angular-route.js"></script>-->
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
 <script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="js/materialize_components.js"></script>
 <script src="js/app.js"></script>
 <script src="js/configs.js"></script>
-<script src="js/controllers/trelloCtrl.js"></script>
-<script src="js/controllers/tasksCtrl.js"></script>
-<script src="js/controllers/phoneCatCtrl.js"></script>
-<script src="js/controllers/phonebookCtrl.js"></script>
 <script src="js/controllers/rozkladCtrl.js"></script>
-<script src="js/factorys/trelloFactorys.js"></script>
-<script src="js/factorys/tasksFactory.js"></script>
-<script src="js/factorys/phoneCatFactory.js"></script>
-<script src="js/factorys/phonebookFactory.js"></script>
-<script src="js/directives/phonebookDir.js"></script>
-<script src="js/directives/trelloDir.js"></script>
+<script src="js/factorys/rozkladFactory.js"></script>
 <script src="js/directives/rozkladDir.js"></script>
 <script src="js/filters.js"></script>
-<script src="js/animations.js"></script>
 </body>
 </html>
