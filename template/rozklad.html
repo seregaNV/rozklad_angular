@@ -1,66 +1,77 @@
 <div class="row" content-dir>
     <div class="col s12 l4" ng-controller="GetTransportsCtrl">
         <div class=" row left_panel_choice_route">
-            <a class="waves-effect btn blue accent-1 left">Зупинки</a>
-            <a class="waves-effect btn blue accent-1 right">Маршрути</a>
+            <a class="waves-effect btn blue accent-2 left">Зупинки</a>
+            <a class="waves-effect btn blue accent-2 right">Маршрути</a>
         </div>
-        <div class="row">
+        <div class="row" ng-controller="GetRoutesCtrl">
             <ul class="collapsible popout left_panel_choice_transport" data-collapsible="accordion">
                 <li>
-                    <div class="collapsible-header blue accent-1 waves-effect left_panel_headers white-text">
+                    <div class="collapsible-header blue accent-2 waves-effect left_panel_headers white-text">
                         <i class="material-icons"><img src="/img/tram.png" alt=""/></i>Трамвай
                     </div>
                     <div class="collapsible-body left_panel_transports">
-
                         <div ng-repeat="tram in trams"
-                             ng-show="choiceView == 'list'">
-                            <p><b>№{{ tram.number }}.</b> {{ tram.name }}</p>
+                             ng-show="choiceView == 'list'"
+                             ng-click="getRoute(tram)"
+                             class="left_panel_transports_list">
+                            <p class="z-depth-1 waves-effect blue lighten-5"><b>№{{ tram.number }}.</b> {{ tram.name }}</p>
                         </div>
-                        <!--<div ng-repeat="tram in trams"-->
-                             <!--ng-click="getRoute(tram)"-->
-                             <!--ng-class="{rozklad_choice_content_active: (checkNumber == tram.number) && (checkType == 'tram')}">-->
-                            <!--<p><b>№{{ tram.number }}.</b> {{ tram.name }}</p>-->
-                        <!--</div>-->
-                        <div ng-show="choiceView == 'icon'" class="left_panel_transports_content">
+                        <div ng-show="choiceView == 'icon'"
+                             class="left_panel_transports_content">
                             <div class="col s2 l4 left_panel_transports_icons"
-                                 ng-repeat="tram in trams">
-                                <a class="btn-floating btn-large waves-effect blue accent-1">
+                                 ng-repeat="tram in trams"
+                                 ng-click="getRoute(tram)">
+                                <a class="btn-floating btn-large waves-effect blue lighten-2">
                                     {{ tram.number }}
                                 </a>
                             </div>
                         </div>
-                        <!--<div  ng-show="choiceView == 'icon'"-->
-                              <!--class="col s2 l4"-->
-                              <!--ng-repeat="tram in trams"-->
-                              <!--ng-click="getRoute(tram)">-->
-                            <!--<div class="rozklad_choice_way_element"-->
-                                 <!--ng-class="{rozklad_choice_way_active: (checkNumber == tram.number) && (checkType == 'tram')}">-->
-                                <!--<div><p>{{ tram.number }}</p></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
                     </div>
                 </li>
                 <li>
-                    <div class="collapsible-header blue accent-1 waves-effect left_panel_headers white-text">
+                    <div class="collapsible-header blue accent-2 waves-effect left_panel_headers white-text">
                         <i class="material-icons"><img src="/img/trolleybus.png" alt=""/></i>Тролейбус
                     </div>
-                    <div class="collapsible-body">
-
+                    <div class="collapsible-body left_panel_transports">
                         <div ng-repeat="trolleybus in trolleybuses"
-                             ng-show="choiceView == 'list'">
-                            <p><b>№{{ trolleybus.number }}.</b> {{ trolleybus.name }}</p>
+                             ng-show="choiceView == 'list'"
+                             ng-click="getRoute(trolleybus)"
+                             class="left_panel_transports_list">
+                            <p class="z-depth-1 waves-effect blue lighten-5"><b>№{{ trolleybus.number }}.</b> {{ trolleybus.name }}</p>
+                        </div>
+                        <div ng-show="choiceView == 'icon'"
+                             class="left_panel_transports_content">
+                            <div class="col s2 l4 left_panel_transports_icons"
+                                 ng-repeat="trolleybus in trolleybuses"
+                                 ng-click="getRoute(trolleybus)">
+                                <a class="btn-floating btn-large waves-effect blue lighten-2">
+                                    {{ trolleybus.number }}
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="collapsible-header blue accent-1 waves-effect left_panel_headers white-text">
+                    <div class="collapsible-header blue accent-2 waves-effect left_panel_headers white-text">
                         <i class="material-icons"><img src="/img/bus.png" alt=""/></i>Автобус
                     </div>
-                    <div class="collapsible-body">
-
+                    <div class="collapsible-body left_panel_transports">
                         <div ng-repeat="bus in buses"
-                             ng-show="choiceView == 'list'">
-                            <p><b>№{{ bus.number }}.</b> {{ bus.name }}</p>
+                             ng-show="choiceView == 'list'"
+                             ng-click="getRoute(bus)"
+                             class="left_panel_transports_list">
+                            <p class="z-depth-1 waves-effect blue lighten-5"><b>№{{ bus.number }}.</b> {{ bus.name }}</p>
+                        </div>
+                        <div ng-show="choiceView == 'icon'"
+                             class="left_panel_transports_content">
+                            <div class="col s2 l4 left_panel_transports_icons"
+                                 ng-repeat="bus in buses"
+                                 ng-click="getRoute(bus)">
+                                <a class="btn-floating btn-large waves-effect blue lighten-2">
+                                    {{ bus.number }}
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </li>
@@ -71,14 +82,119 @@
         <div class="row right_panel_choice_window">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a class="active" href="#test1">Test 1</a></li>
-                    <li ng-if="false" class="tab col s3"><a href="#test2">Test 2</a></li>
-                    <li class="tab col s3"><a href="#test3">Test 3</a></li>
+                    <li class="tab col s3"><a class="active" href="#map">Карта</a></li>
+                    <li class="tab col s3"><a href="#timetable">Розклад</a></li>
+                    <li ng-if="false" class="tab col s3"><a href="#test">Test</a></li>
                 </ul>
             </div>
-            <div id="test1" class="col s12">Test 1</div>
-            <div ng-if="false" id="test2" class="col s12">Test 2</div>
-            <div id="test3" class="col s12">Test 3</div>
+            <div id="map"
+                 class="col s12"
+                 map-dir
+                 centration-dir
+                 geo-dir
+                 get-position-dir
+                 travel-stations-dir>
+                <div id="map_container"></div>
+            </div>
+            <div id="timetable" class="col s12" ng-controller="RozkladStationsCtrl">
+                <div class="row rozklad_tour_description_head">
+                    <div class="col s1 rozklad_tour_description_img">
+                        <div ng-show="checkType == 'tram'">
+                            <img src="/img/tram.png" alt=""/>
+                        </div>
+                        <div ng-show="checkType == 'trolleybus'">
+                            <img src="/img/trolleybus.png" alt=""/>
+                        </div>
+                        <div ng-show="checkType == 'bus'">
+                            <img src="/img/bus.png" alt=""/>
+                        </div>
+                    </div>
+                    <div class="col s9"><h5>№{{ routeNumber }}.  {{ routeName }}.</h5></div>
+                    <div class="col s2 rozklad_tour_description_icon">
+                        <i class="fa fa-2x fa-random rozklad_manu_icon"></i>
+                    </div>
+                </div>
+                <div ng-switch on = "choiceDescription">
+
+
+                    <div class="row rozklad_tour_description_control">
+                        <div class="col-xs-2 rozklad_tour_description_control_icon">
+                            <i ng-click="choiceDescription = 'list'"
+                               class="fa fa-2x fa-list-ol"
+                               ng-class="{rozklad_tour_description_control_icon_active: choiceDescription == 'list'}"></i>
+                        </div>
+                        <div class="col-xs-8 rozklad_tour_description_control_panel">
+                                <span class="rozklad_tour_description_control_direction pull-left" ng-click="getPreStation()">
+                                    <i class="fa fa-angle-double-left"></i> {{ previousStation }} <i class="fa fa-angle-left"></i>
+                                </span>
+                            <span class="rozklad_tour_description_stationName">{{ stationName }}</span>
+                                <span class="rozklad_tour_description_control_direction pull-right" ng-click="getNextStation()">
+                                    <i class="fa fa-angle-right"></i> {{ nextStation }} <i class="fa fa-angle-double-right"></i>
+                                </span>
+                        </div>
+                        <div class="col-xs-2 rozklad_tour_description_control_icon">
+                            <i ng-click="choiceDescription = 'description'"
+                               class="fa fa-2x fa-columns"
+                               ng-class="{rozklad_tour_description_control_icon_active: choiceDescription == 'description'}"></i>
+                        </div>
+                    </div>
+
+
+                    <div class="rozklad_route_description_content"
+                         ng-switch-when="list">
+                        <dl class="dl-horizontal rozklad_station_table"
+                            ng-repeat="station in stations"
+                            ng-class="{rozklad_station_table_active: station.toStation === 0}"
+                            ng-click="addRoutList($index)">
+                            <dt>
+                                <span ng-show="station.toStation != 0">{{ station.toStation }}</span>
+                                <span ng-show="station.toStation === 0"><i class="fa fa-map-marker"></i></span>
+                            </dt>
+                            <dd>{{ station.name }}</dd>
+                        </dl>
+                    </div>
+                    <div ng-switch-when="description">
+                        <div travel-timetable-dir>
+                            <div class="row rozklad_route_description_timetable">
+                                <div id="rozklad_timetable_weekdays" class="col-xs-6">
+                                    <p class="text-center">Pобочі дні.</p>
+                                </div>
+                                <div id="rozklad_timetable_weekend" class="col-xs-6">
+                                    <p class="text-center">Вихідні дні.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="rozklad_timetable_depot_marker"><span>59</span> - прямує в депо.</p>
+                        <!--<div class="row rozklad_route_description_times">-->
+                        <!--<div class="col-xs-12 col-sm-6">-->
+                        <!--<dl class="dl-horizontal rozklad_station_table" ng-repeat="(hours, minutes) in weekdays">-->
+                        <!--<dt>-->
+                        <!--<span>{{ hours }}</span>-->
+                        <!--</dt>-->
+                        <!--<dd>-->
+                        <!--<span ng-repeat="minute in minutes.timetable">-->
+                        <!--{{ minute }}-->
+                        <!--</span>-->
+                        <!--</dd>-->
+                        <!--</dl>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-12 col-sm-6">-->
+                        <!--<dl class="dl-horizontal rozklad_station_table" ng-repeat="(hours, minutes) in weekend">-->
+                        <!--<dt>-->
+                        <!--<span>{{ hours }}</span>-->
+                        <!--</dt>-->
+                        <!--<dd>-->
+                        <!--<span ng-repeat="minute in minutes.timetable">-->
+                        <!--{{ minute }}-->
+                        <!--</span>-->
+                        <!--</dd>-->
+                        <!--</dl>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+            <div ng-if="false" id="test" class="col s12">Test</div>
         </div>
     </div>
 </div>
