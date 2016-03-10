@@ -24,7 +24,34 @@
                         position: google.maps.ControlPosition.LEFT_CENTER
                     }
                 });
+                var styles = [
+                    {
+                        stylers: [
+                            { hue: "#00ffe6" },
+                            { saturation: -20 }
+                        ]
+                    },{
+                        featureType: "road",
+                        elementType: "geometry",
+                        stylers: [
+                            { lightness: 100 },
+                            { visibility: "simplified" }
+                        ]
+                    },{
+                        featureType: "road",
+                        elementType: "labels",
+                        stylers: [
+                            { visibility: "off" }
+                        ]
+                    },{
+                        featureType: "transit.station",
+                        stylers: [
+                            { visibility: "off" }
+                        ]
+                    }
+                ];
 
+                //map.setOptions({styles: styles});
                 scope.$emit('mapIsLoad', {
                     map: map
                 });
@@ -152,9 +179,10 @@
             link: function (scope, element, attributes) {
                 var markers = [];
                 var flightPath;
-                console.log('scope', scope);
                 scope.$on('isLoadToDir', function(event, args) {
+
                     console.log('isLoadToDir');
+                    console.log('indexNumber', scope.indexNumber);
                     //console.log('scope.id', scope.$id);
                     var color = 'red';
                     var direct = args.stations;

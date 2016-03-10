@@ -1,10 +1,20 @@
 html, body { height: 100%; margin: 0; padding: 0; }
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none;
+}
 #map { height: 80%; }
 #logo-rozklad {
     font-size: 36px;
     font-family: 'Lobster', cursive;
     font-style: italic;
     left: 15px;
+    padding: 0 10px;
+}
+.transport_nowrap{
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 /*Menu list ---------------------------------------------------------------------------------*/
 .mobile_size_menu_list {
@@ -34,10 +44,6 @@ html, body { height: 100%; margin: 0; padding: 0; }
 /*---------------------------------------------------------------------------------------------*/
 
 /*btn------------------------------------------------------------------------------------------*/
-/*.left_panel_choice_transport {*/
-/*}*/
-/*.left_panel_choice_transport li {*/
-/*}*/
 .left_panel_headers i img {
     position: relative;
     top: 5px;
@@ -49,6 +55,32 @@ html, body { height: 100%; margin: 0; padding: 0; }
     padding: 0;
     margin: 10px 0;
     width: 48%;
+}
+
+/*route detail --------------------------------------------------------------------------------------------------------*/
+
+/*.left_panel_route_detail {*/
+/*}*/
+.left_panel_route_detail_title{
+    /*white-space: nowrap;*/
+    /*word-wrap: normal;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+}
+.rozklad_station_table a {
+    cursor: pointer;
+    /*padding: 5px;*/
+}
+.rozklad_station_table a.btn-floating {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.rozklad_station_table a span{
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    left: 0;
 }
 /*choice transports -----------------------------------------------------------------------------*/
 /*.left_panel_transports {*/
@@ -119,7 +151,7 @@ html, body { height: 100%; margin: 0; padding: 0; }
 /*Description head------------------------------------------*/
 .rozklad_tour_description_head {
     margin: 0;
-    background-color: #fff973;
+    border-radius: 50px;
 }
 .rozklad_tour_description_head h5{
     font-family: 'Lobster', cursive;
@@ -127,183 +159,59 @@ html, body { height: 100%; margin: 0; padding: 0; }
     margin: 10px 0;
     padding: 10px 0;
     text-align: center;
-    white-space: nowrap;
-    word-wrap: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    /*white-space: nowrap;*/
+    /*word-wrap: normal;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
 }
 
-.rozklad_tour_description_img{
-    padding: 0;
-}
 .rozklad_tour_description_img div img{
-    margin: 9px 0 0 9px;
+    margin: 8px 0 0 0;
     height: 50px;
     width: 50px;
 }
 .rozklad_tour_description_icon {
-    padding: 0;
-    top: 9px;
-    text-align: center;
-}
-.rozklad_tour_description_icon i {
-    padding: 7px;
-    margin: 0 auto;
-    border: 3px solid #555;
-    border-radius: 5px;
-}
-.rozklad_tour_description_icon i:hover {
-    cursor: pointer;
-    background-color: yellow;
-}
-/*Description content------------------------------------------*/
-.rozklad_route_description_content {
-    background-color: #fcffd6;
-    border-radius: 10px;
-    max-height: 373px;
-    margin: 10px;
-    font-size: 16px;
-    color: #555;
-    overflow-y: auto;
-}
-.rozklad_station_table{
-    margin: 0;
-    padding: 0;
-}
-.rozklad_station_table i{
-    color: red;
-}
-.rozklad_station_table dt{
-    width: 30px;
-    text-align: center;
-}
-.rozklad_station_table dd{
-    margin: 0 0 0 40px;
-}
-.rozklad_station_table:hover{
-    cursor: pointer;
-    color: #000;
-    /*font-weight: 600;*/
-}
-.rozklad_station_table_active {
-    color: #000;
-    font-weight: 600;
-    background-color: #ffff61;
-    border-radius: 5px;
-}
-.rozklad_route_description_times {
-    max-height: 340px;
-    margin: 20px;
-    font-size: 16px;
-    color: #555;
-    overflow-y: auto;
+    margin: 5px 0 0 5px;
+    color: white;
 }
 
-/*controlling for tour---------------------------------------*/
-.rozklad_tour_description_control {
-    /*padding: 7px;*/
-    /*margin: 0 auto;*/
-    /*border: 3px solid #777;*/
-    border-radius: 0 0 30px 30px;
-    margin: 0 50px 10px 50px;
-    background-color: #fffb99;
-}
 .rozklad_tour_description_control_panel{
     font-family: 'Lobster', cursive;
-    font-size: 18px;
-    color: #777;
+    font-size: 20px;
+    /*color: #777;*/
     /*margin-bottom: 5px;*/
-    padding: 5px 0;
+    /*padding: 15px 0;*/
+    margin: 15px 0;
     text-align: center;
 }
 .rozklad_tour_description_stationName {
     display: inline-block;
-    max-width: 170px;
-    white-space: nowrap;
-    word-wrap: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    max-width: 250px;
+    /*white-space: nowrap;*/
+    /*word-wrap: normal;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
 }
-
-.rozklad_tour_description_control_icon {
-    padding-top: 2px;
-    text-align: center;
-    color: #777;
-}
-.rozklad_tour_description_control_icon i {
-    padding: 3px;
-    margin: 0 auto;
-    border: 2px solid #777;
-    border-radius: 5px;
-}
-.rozklad_tour_description_control_icon i:hover {
-    cursor: pointer;
-    background-color: yellow;
-}
-.rozklad_tour_description_control_icon_active {
-    background-color: #fff973;
+.rozklad_tour_description_control_direction {
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 .rozklad_tour_description_control_direction:hover {
     cursor: pointer;
     color: #333;
 }
-/*title page---------------------------------------*/
-.rozklad_tour_description_title img{
-    width: 100%;
-}
-.rozklad_tour_description_title p{
-    margin: 10px;
-    text-indent: 20px
-}
 
-/**/
-
-
-/*.rorozklad_station_tabletable*/
-.rozklad_route_description_timetable {
-    background-color: #fcffd6;
-    border-radius: 10px;
-    max-height: 340px;
-    margin: 10px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #555;
-    overflow-y: auto;
-}
-.rozklad_route_description_timetable p{
-    margin: 5px 0 0 0;
-}
-.rozklad_station_timetable{
-    margin-bottom: 10px;
-}
-.rozklad_station_timetable dt{
-    width: 30px;
-    text-align: center;
-    color: #ddd;
-    background-color: #555;
-}
-.rozklad_station_timetable dd{
-    margin: 0 0 0 40px;
-}
-.rozklad_station_timetable dd span{
-    display: inline-block;
-    padding: 0 5px;
-}
-.rozklad_toDepot {
-    background-color: #ffff61;
-}
-.rozklad_timetable_depot_marker {
-    /*display: block;*/
-    position: absolute;
-    margin: 0;
-    /*text-align: right;*/
-    bottom: 10px;
-    right: 10px;
-}
-.rozklad_timetable_depot_marker span{
-    display: inline-block;
-    font-weight: 600;
-    padding: 0 5px;
-    background-color: #ff7474;
-    color: black;
+/*route---------------------------------------------------------------------------------------------------------------*/
+.rozklad_route_description_content {
+    display: block;
+    /*background-color: #fcffd6;*/
+    /*border-radius: 10px;*/
+    /*max-height: 373px;*/
+    /*margin: 10px;*/
+    /*font-size: 16px;*/
+    /*color: #555;*/
+    /*overflow-y: auto;*/
 }
